@@ -10,7 +10,7 @@
 const PAUSE_SECONDS = 5 * 60
 const WORK_SECONDS = 25 * 60
 
-function zeropad(num) {
+function zeropad (num) {
   if (num < 10) {
     return `0${num}`
   }
