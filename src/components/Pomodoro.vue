@@ -96,6 +96,7 @@ h1 {
   font-family: Contrail One;
   text-shadow: black 4px 8px 8px;
   cursor: pointer;
+  line-height: 0;
 }
 
 .container {
