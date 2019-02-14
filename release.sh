@@ -14,5 +14,8 @@ git checkout -b gh-pages
 git rm babel.config.js  LICENSE package.json README.md vue.config.js src/ public/ -r
 git mv pomodoro/* ./
 rmdir pomodoro
+git commit -m 'Release'
+
+git checkout master
 
 git push --force github gh-pages
