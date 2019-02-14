@@ -5,9 +5,9 @@ import { register } from 'register-service-worker'
 if (process.env.NODE_ENV === 'production') {
   register(`/pomodoro/service-worker.js`,
     {
-      scope: '/pomodoro/'
-    },
-    {
+      registrationOptions: {
+        scope: '/pomodoro/'
+      },
       ready () {
         console.log(
           'App is being served from cache by a service worker.\n' +
