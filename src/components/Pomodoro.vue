@@ -110,5 +110,6 @@ h1 {
 
 .container {
   background-color: #282828;
+  padding: 0;
 }
 </style>
