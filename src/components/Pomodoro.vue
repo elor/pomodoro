@@ -11,6 +11,7 @@ import range from 'lodash.range'
 
 const PAUSE_SECONDS = 5 * 60
 const WORK_SECONDS = 25 * 60
+const BLINK_SECONDS = 3
 
 function zeropad (num) {
   if (num < 10) {
@@ -56,7 +57,7 @@ export default {
           this.seconds = newSeconds
         }
 
-        if (this.seconds < 0) {
+        if (this.seconds <= 0) {
           this.seconds = 0
           this.switchPause()
         }
@@ -74,16 +75,18 @@ export default {
       this.seconds = WORK_SECONDS
     },
     blink () {
-      range(0, 5000, 500).forEach(i => {
+      range(0, BLINK_SECONDS * 1000, 500).forEach(i => {
         window.setTimeout(() => { this.hidden = !this.hidden }, i)
       })
     },
     switchPause () {
       this.stop()
-      this.isPause = !this.isPause
-      this.seconds = this.isPause ? PAUSE_SECONDS : WORK_SECONDS
-      this.start()
       this.blink()
+      window.setTimeout(() => {
+        this.isPause = !this.isPause
+        this.seconds = this.isPause ? PAUSE_SECONDS : WORK_SECONDS
+        this.start()
+      }, BLINK_SECONDS * 1000)
     },
     update () {
 
